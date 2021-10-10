@@ -1,0 +1,17 @@
+.friend {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 15px;
+}
+.description {
+    margin-left: 20px;
+}
+.friend img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}

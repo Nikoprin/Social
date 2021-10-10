@@ -1,0 +1,26 @@
+.profile {
+    grid-area: profile;
+    padding: 10px 30px;
+}
+
+.description {
+    text-align: center;
+    padding-top: 20px;
+}
+.description img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.description h2 {
+    font-size: 40px;
+    font-weight: 400;
+    font-family: 'Source Serif Pro', serif;
+}
+.description p {
+    font-size: 30px;
+    font-weight: 400;
+    font-family: 'Source Serif Pro', serif;
+    opacity: 80%;
+}

@@ -1,24 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import "./App.css";
+import { BrowserRouter, Route } from "react-router-dom";
+import Header from "./Components/Header/Header";
+import Profile from "./Components/Profile/Profile";
+import Messages from "./Components/Messages/Messages";
+import Skills from "./Components/Skills/Skills";
+import Education from "./Components/Education/Education";
+import Friends from "./Components/Friends/Friends";
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header
+          name="Nikolai Prinko"
+          skill="Front-End Developer"
+          city="Ukraine"
+        />
+        <div className="app-wrapper-content">
+          <Route
+            exact
+            path="/Profile"
+            render={() => {
+              return (
+                <Profile
+                  name="Nikolai Prinko"
+                  skill="Front-End Development"
+                  posts={props.state.profilePage.posts}
+                  newTextValue={props.state.profilePage.newTextValue}
+                  addNewPost={props.addNewPost}
+                  updateTextValue={props.updateTextValue}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/Friends"
+            render={() => {
+              return <Friends friends={props.state.profilePage.friends} />;
+            }}
+          />
+          <Route
+            path="/Messages"
+            render={() => {
+              return (
+                <Messages
+                  users={props.state.messagesPage.users}
+                  messages={props.state.messagesPage.messages}
+                  newMessage={props.state.messagesPage.message}
+                  sendNewMessage={props.sendNewMessage}
+                  updateMessageValue={props.updateMessageValue}
+                />
+              );
+            }}
+          />
+          <Route path="/Skills" render={Skills} />
+          <Route path="/Education" render={Education} />
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

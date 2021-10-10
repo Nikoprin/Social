@@ -1,0 +1,31 @@
+.form {
+    text-align: center;
+    margin-top: 25px;
+    position: relative;
+}
+.form input {
+    width: 50%;
+    padding: 20px 20px 50px 10px;
+    outline: none;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-family: 'Source Serif Pro', serif;
+}
+.form input::placeholder {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Source Serif Pro', serif;
+}
+.publishButton button {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Source Serif Pro', serif;
+    border: none;
+    color: rgba(0,0,0,.7);
+    margin-top: 20px;
+    border-radius: 10px;
+}

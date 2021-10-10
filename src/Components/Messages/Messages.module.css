@@ -1,0 +1,93 @@
+.messages {
+    display: grid;
+    grid-template-columns: 4fr 10fr;
+}
+.friends ul li a{
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(0,0,0,.7);
+}
+.friends {
+    text-align: center;
+    border-right: 1px solid gray;
+    padding: 0 20px;
+}
+.user {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 50px;
+    border-bottom: 1px solid #2c98f0;
+    transition: .3s ease-in-out;
+}
+.user:hover {
+    background-color: rgba(0, 0, 0, .1);
+    cursor: pointer;
+}
+
+.user img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.friendMessages {
+    padding: 30px;
+    flex-direction: column;
+    position: relative;
+}
+.message span {
+    padding: 15px 10px;
+    background-color: #eaf6ff;
+    font-family: 'Source Serif Pro', serif;
+    color: rgba(0,0,0,.7);
+    font-weight: 400;
+    border-radius: 20px;
+    position: relative;
+    z-index: 999;
+}
+.message span::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-color: #eaf6ff;
+    transform: rotate(45deg);
+    top: 33px;
+    left: 13px;
+    z-index: 1;
+}
+.message {
+    margin: 45px 0;
+}
+.newMessage {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+}
+.newMessage input {
+    width: 550px;
+    padding: 15px 15px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+    font-family: 'Source Serif Pro', serif;
+}
+.newMessage button {
+    background-color: #2c98f0;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}

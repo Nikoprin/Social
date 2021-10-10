@@ -1,0 +1,10 @@
+.friends {
+    padding: 10px 20px;
+}
+.friends h3 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    color: rgba(0,0,0,.7);
+    font-family: 'Source Serif Pro', serif;
+}

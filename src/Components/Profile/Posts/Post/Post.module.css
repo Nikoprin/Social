@@ -1,0 +1,25 @@
+.user {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+.user img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.user h4 {
+    font-size: 20px;
+    font-weight: 400;
+}
+.description {
+    border-bottom: 1px solid gray;
+}
+.description p {
+    font-size: 20px;
+    font-family: 'Source Serif Pro', serif;
+    font-weight: 400;
+    padding: 10px 5px;
+}
