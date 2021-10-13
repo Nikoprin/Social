@@ -27,8 +27,7 @@ function App(props) {
                   skill="Front-End Development"
                   posts={props.state.profilePage.posts}
                   newTextValue={props.state.profilePage.newTextValue}
-                  addNewPost={props.addNewPost}
-                  updateTextValue={props.updateTextValue}
+                  dispatch={props.dispatch}
                 />
               );
             }}
@@ -47,8 +46,7 @@ function App(props) {
                   users={props.state.messagesPage.users}
                   messages={props.state.messagesPage.messages}
                   newMessage={props.state.messagesPage.message}
-                  sendNewMessage={props.sendNewMessage}
-                  updateMessageValue={props.updateMessageValue}
+                  dispatch={props.dispatch}
                 />
               );
             }}

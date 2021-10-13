@@ -11,7 +11,7 @@ const Profile = (props) => {
         <h2>{props.name}</h2>
         <p>{props.skill}</p>
       </div>
-      <Form newTextValue={props.newTextValue} addNewPost={props.addNewPost} updateTextValue={props.updateTextValue}/>
+      <Form newTextValue={props.newTextValue} dispatch={props.dispatch} />
       <MyPosts posts={props.posts} />
     </div>
   );

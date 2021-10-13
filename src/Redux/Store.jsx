@@ -1,6 +1,9 @@
 import Avatar from "./../Images/Hacker.jpg";
-  import {renderEntireTree} from './../index';
-  let state = {
+import messageReducer from "./Reducers/MessagesReducer";
+import profileReducer from "./Reducers/ProfileReducer";
+let store = {
+  _rerenderEntireTree() {},
+  _state: {
     profilePage: {
       posts: [
         {
@@ -92,49 +95,20 @@ import Avatar from "./../Images/Hacker.jpg";
         },
       ],
     },
-  };
-  export const addNewPost = () =>  {
-    let newPost = {
-      name: "Анна Фролова",
-      description: state.profilePage.newTextValue,
-      user: Avatar,
-      id: 4,
-    };
-    state.profilePage.posts.push(newPost);
-    renderEntireTree(state);
-  };
-  export const updateTextValue = (text) => {
-    state.profilePage.newTextValue = text;
-    renderEntireTree(state);
-  };
-  export const sendNewMessage = () => {
-    let newMessage = {
-      message: state.messagesPage.message,
-      id: 5,
-    };
-    state.messagesPage.messages.push(newMessage);
-    renderEntireTree(state);
-  };
-  export const updateMessageValue = (message) => {
-    state.messagesPage.message = message;
-    renderEntireTree(state);
-  };
-  // export let subscriber = (observer) => {
-  //   renderEntireTree = observer;
-  // }
-  // export let dispatch = (action)  => {
-  //   if (action.type == "addNewPost") {
-  //     let newPost = {
-  //       name: "Анна Фролова",
-  //       description: _state.profilePage.newTextValue,
-  //       user: Avatar,
-  //       id: 4,
-  //     };
-  //     _state.profilePage.posts.push(newPost);
-  //     renderEntireTree(state);
-  //   } else if (action.type === "updateTextValue") {
-  //     state.profilePage.newTextValue = action.text;
-  //     renderEntireTree(state);
-  //   }
-  // };
-export default state;
+    sidebar: {},
+  },
+  getState() {
+    return this._state;
+  },
+  sendNewMessage() {},
+  dispatch(action) {
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagesPage = messageReducer(this._state.messagesPage, action);
+    this._rerenderEntireTree(this._state);
+  },
+  subscribe(observer) {
+    this._rerenderEntireTree = observer;
+  },
+};
+
+export default store;

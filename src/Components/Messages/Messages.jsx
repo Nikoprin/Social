@@ -2,19 +2,25 @@ import React from "react";
 import classes from "./Messages.module.css";
 import Avatar from "./../../Images/Hacker.jpg";
 import { NavLink } from "react-router-dom";
-
+import {
+  sendNewMessage,
+  updateMessageValueActionCreator,
+} from "../../Redux/Reducers/MessagesReducer";
 const Messages = (props) => {
   let newMessageElement = React.createRef();
 
-  let sendNewMessage = () => {
-    props.sendNewMessage();
-    props.updateMessageValue('');
+  let newMessage = () => {
+    props.dispatch(sendNewMessage());
+    //let action = dispatch({type: 'SEND_NEW_MESSAGE'});
   };
-
   let onChangeValue = (value) => {
     value = newMessageElement.current.value;
-    props.updateMessageValue(value);
-  }
+    props.dispatch(updateMessageValueActionCreator(value));
+        /* let action = dispatch({
+      type: 'UPDATE_MESSAGE_VALUE',
+      text: value
+    })*/
+  };
   return (
     <div className={classes.messages}>
       <div className={classes.friends}>
@@ -40,8 +46,14 @@ const Messages = (props) => {
           );
         })}
         <div className={classes.newMessage}>
-          <input type="text" placeholder="Введите сообщение" ref={newMessageElement} value={props.newMessage} onChange={onChangeValue} />
-          <button onClick={ sendNewMessage }>Отправить</button>
+          <input
+            type="text"
+            placeholder="Введите сообщение"
+            ref={newMessageElement}
+            value={props.newMessage}
+            onChange={onChangeValue}
+          />
+          <button onClick={newMessage}>Отправить</button>
         </div>
       </div>
     </div>
