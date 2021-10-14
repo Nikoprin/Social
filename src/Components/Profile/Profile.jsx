@@ -1,18 +1,16 @@
 import React from "react";
 import Ava from "./../../Images/Hacker.jpg";
-import Form from "./Posts/Form/Form";
-import MyPosts from "./Posts/MyPosts";
+import MyPostsContainer from './Posts/MyPostsContainer'
 import classes from "./Profile.module.css";
 const Profile = (props) => {
   return (
     <div className={classes.profile}>
       <div className={classes.description}>
         <img src={Ava} alt="Profile Photo" />
-        <h2>{props.name}</h2>
-        <p>{props.skill}</p>
+        <h2>Nikolai Prinko</h2>
+        <p>Front-End Development</p>
       </div>
-      <Form newTextValue={props.newTextValue} dispatch={props.dispatch} />
-      <MyPosts posts={props.posts} />
+      <MyPostsContainer store={props.store}/>
     </div>
   );
 };

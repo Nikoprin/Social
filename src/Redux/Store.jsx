@@ -1,6 +1,7 @@
 import Avatar from "./../Images/Hacker.jpg";
 import messageReducer from "./Reducers/MessagesReducer";
 import profileReducer from "./Reducers/ProfileReducer";
+import sidebarReducer from "./Reducers/SidebarReducer";
 let store = {
   _rerenderEntireTree() {},
   _state: {
@@ -79,7 +80,7 @@ let store = {
           id: 5,
         },
       ],
-      message: "Привет",
+      messageValue: "Привет",
       messages: [
         {
           message: "Привет",
@@ -104,6 +105,7 @@ let store = {
   dispatch(action) {
     this._state.profilePage = profileReducer(this._state.profilePage, action);
     this._state.messagesPage = messageReducer(this._state.messagesPage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
     this._rerenderEntireTree(this._state);
   },
   subscribe(observer) {
